@@ -7,6 +7,7 @@
                 New Professor
             </title>
             {% bootstrap_css %}
+            <link ref="stylesheet" href="./../static/css/style.css">
 
         </head>
         <body>
@@ -27,15 +28,15 @@
             </h2>
             
             <div class="form-group">        
-            <form action="{% url 'new-professor.html' %}" method="POST" class="form" autocomplete="on">
-                {% csrf_token %}
-                {% bootstrap_form form %}
-                {% buttons %}
-                <button type="submit" class="btn btn-primary">
-                    Register
-                </button>
-                {% endbuttons %}
-            </form>
+                <form action="{% url 'new-professor.html' %}" method="POST" class="form" autocomplete="on">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    {% buttons %}
+                    <button type="submit" class="btn btn-primary">
+                        Register
+                    </button>
+                    {% endbuttons %}
+                </form>
             </div>
 
             {% bootstrap_javascript jquery='full' %}

@@ -10,3 +10,8 @@ class NewProfessorAdmin(admin.ModelAdmin):
 @admin.register(Student)
 class NewStudentAdmin(admin.ModelAdmin):
     pass
+
+
+@admin.register(Guardian)
+class NewGuardianAdmin(admin.ModelAdmin):
+    pass

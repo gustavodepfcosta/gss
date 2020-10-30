@@ -36,3 +36,16 @@ class ContactModelForm(forms.ModelForm):
             'subject',
             'message',
         ]
+
+
+class GuardianModelForm(forms.ModelForm):
+    class Meta:
+        model = Guardian
+        fields = [
+            'first_name',
+            'last_name',
+            'email',
+            'phone_number',
+            'address',
+        ]
+        

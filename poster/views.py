@@ -43,6 +43,34 @@ def new_student(request):
     return render(request, 'new-student.html', context)
 
 
+def new_guardian(request):
+    form = GuardianModelForm(request.POST or None)
+
+    if str(request.method) == 'POST':
+        if form.is_valid():
+            form.save()
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            email = form.cleaned_data['email']
+            phone_number = form.cleaned_data['phone_number']
+            address = form.cleaned_data['address']
+
+            messages.success(request, 'New guardian registered successfully')
+            form = GuardianModelForm
+
+        else:
+            messages.error(request, 'Oops! Something went wrong. Please, try again later.')
+        
+    else:
+        form = GuardianModelForm
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'new-guardian.html', context)
+    
+
 def new_professor(request):
     form = ProfessorModelForm(request.POST or None)
 

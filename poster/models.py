@@ -29,10 +29,6 @@ class Professor(BaseModel):
         return f'{self.first_name} - {self.graduation}'
 
 
-def professor_pre_save(signal, instance, sender, **kwargs):
-    instance.slug = slugify(instance.first_name)
-
-
 class Student(BaseModel):
     first_name = models.CharField('First Name', max_length=50)
     last_name = models.CharField('Last Name', max_length=50)
@@ -42,8 +38,15 @@ class Student(BaseModel):
         return f'{self.first_name} - {self.last_name}'
 
 
-def student_pre_save(signal, instance, sender, **kwargs):
-    instance.slug = slugify(instance.first_name)
+class Guardian(BaseModel):
+    first_name = models.CharField('First Name', max_length=50)
+    last_name = models.CharField('Last Name', max_length=50)
+    email = models.EmailField('e-mail', max_length=100)
+    phone_number = models.IntegerField('Phone Number')
+    address = models.CharField('Address', max_length=100)
+
+    def __str__(self) -> str:
+        return f'{self.first_name} - {self.last_name}'
 
 
 class Contact(BaseModel):
@@ -55,5 +58,16 @@ class Contact(BaseModel):
     message = models.TextField('Message')
 
 
+def professor_pre_save(signal, instance, sender, **kwargs):
+    instance.slug = slugify(instance.first_name)
+
+def student_pre_save(signal, instance, sender, **kwargs):
+    instance.slug = slugify(instance.last_name)
+
+def guardian_pre_save(signal, instance, sender, **kwargs):
+    instance.slug = slugify(instance.last_name)
+
+
 signals.pre_save.connect(professor_pre_save, sender=Professor)
 signals.pre_save.connect(student_pre_save, sender=Student)
+signals.pre_save.connect(guardian_pre_save, sender=Guardian)

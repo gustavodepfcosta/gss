@@ -1,17 +1,32 @@
 @charset "UTF-8";
 
 body div#cards {
-    margin-left: 75px;
+    width: 90%;
+    margin-left: 9%;
+    margin-right: 7%;
     margin-top: 15px;
 }
 
 body div#cards div#each-card {
-    margin: 20px;
-    margin-top: 10px;
+    margin: 15px;
 }
 
 body h1.page-describer {
-    margin-top: 3px;
-    margin-left: 75px;
+    margin-right: 5%;
+    margin-top: 1%;
+    margin-left: 5%;
     padding: 9px;
+    border-bottom: 1px solid black;
+}
+
+body h2.page-describer {
+    margin-left: 5.5%;
+    margin-bottom: 2%;
+}
+
+body div.form-group {
+    display: block;
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
 }

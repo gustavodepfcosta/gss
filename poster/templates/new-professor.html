@@ -17,15 +17,16 @@
                     <a class="navbar-brand" href="{% url 'contact.html' %}">Contact</a>
                 </nav>
             </header>
-            <center>
-            <h1>
+            
+            <h1 class="page-describer">
                 New Professor
             </h1>
             {% bootstrap_messages %}
             <h2>
                 Fill the form below
             </h2>
-            </center>            
+            
+            <div class="form-group">        
             <form action="{% url 'new-professor.html' %}" method="POST" class="form" autocomplete="on">
                 {% csrf_token %}
                 {% bootstrap_form form %}
@@ -35,6 +36,7 @@
                 </button>
                 {% endbuttons %}
             </form>
+            </div>
 
             {% bootstrap_javascript jquery='full' %}
         </body>

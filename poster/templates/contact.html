@@ -19,24 +19,25 @@
                     <a class="navbar-brand" href="{% url 'contact.html' %}">Contact</a>
                 </nav>
             </header>
-            <center>
-            <h1>
+            
+            <h1 class="page-describer">
                 Contact Us
             </h1>
             {% bootstrap_messages %}
-            <h2>
+            <h2 class="page-describer">
                 Fill the form below
             </h2>
-            </center>            
-            <form id="django-form" action="{% url 'contact.html' %}" method="POST" class="form" autocomplete="on">
-                {% csrf_token %}
-                {% bootstrap_form form %}
-                {% buttons %}
-                <button type="submit" class="btn btn-primary">
-                    Send Message
-                </button>
-                {% endbuttons %}
-            </form>
+            <div class="form-group">
+                <form action="{% url 'contact.html' %}" method="POST" class="form" autocomplete="on">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    {% buttons %}
+                    <button type="submit" class="btn btn-primary">
+                        Send Message
+                    </button>
+                    {% endbuttons %}
+                </form>
+            </div>
 
             {% bootstrap_javascript jquery='full' %}
         </body>

@@ -25,9 +25,10 @@
 
             <!-- professors card -->
 
-            <div id="cards">
+            <div id="cards" class="card-columns">
+
                 <div id="each-card" class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <img class="card-img-top" src="./../static/images/professor.jpeg" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">Professors</h5>
                     <p class="card-text">Register new professors or visualize registered ones</p>
@@ -35,18 +36,29 @@
                     </div>
                 </div>
 
-                <!-- students card -->
+            <!-- students card -->
 
                 <div id="each-card" class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <img class="card-img-top" src="./../static/images/student.jpg" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">Students</h5>
                     <p class="card-text">Register new students or visualize registered ones</p>
-                    <a href="#" class="btn btn-primary">Go</a>
+                    <a href="{% url 'new-student.html' %}" class="btn btn-primary">Go</a>
                     </div>
                 </div>
+
+            <!-- guardians card -->
+
+                <div id="each-card" class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./../static/images/guardians.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">Guardian</h5>
+                    <p class="card-text">Register new guardians or visualize registered ones</p>
+                    <a href="{% url 'new-guardian.html' %}" class="btn btn-primary">Go</a>
+                    </div>
+                </div>
+
             </div>
-            
             {% bootstrap_messages %}
                 
             {% bootstrap_javascript jquery='full' %}

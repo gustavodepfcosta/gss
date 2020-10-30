@@ -1,0 +1,55 @@
+{% load bootstrap4 %}
+<DOCTYPE3 html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <title>
+                Página Principal
+            </title>
+            {% bootstrap_css %}
+            <link rel="stylesheet" href="./../static/css/style.css">
+
+        </head>
+        <body>
+            <header>
+                <nav id="professors" class="navbar navbar-dark bg-primary">
+                    <a class="navbar-brand" href="{% url 'index.html' %}">Home Page</a>
+                    <a class="navbar-brand" href="{% url 'registrations.html' %}">Registrations</a>
+                    <a class="navbar-brand" href="{% url 'contact.html' %}">Contact</a>
+                </nav>
+            </header>
+            
+            <h1 class="page-describer">
+                Where do you desire to go?
+            </h1>
+
+            <!-- professors card -->
+
+            <div id="cards">
+                <div id="each-card" class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">Professors</h5>
+                    <p class="card-text">Register new professors or visualize registered ones</p>
+                    <a href="{% url 'new-professor.html' %}" class="btn btn-primary">Go</a>
+                    </div>
+                </div>
+
+                <!-- students card -->
+
+                <div id="each-card" class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">Students</h5>
+                    <p class="card-text">Register new students or visualize registered ones</p>
+                    <a href="#" class="btn btn-primary">Go</a>
+                    </div>
+                </div>
+            </div>
+            
+            {% bootstrap_messages %}
+                
+            {% bootstrap_javascript jquery='full' %}
+        </body>
+    </html>
+</DOCTYPE3>

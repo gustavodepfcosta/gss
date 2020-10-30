@@ -1,0 +1,5 @@
+bin/
+lib/
+*sqlite3
+*pyc
+*cfg

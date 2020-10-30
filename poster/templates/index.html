@@ -1,0 +1,32 @@
+{% load bootstrap4 %}
+<DOCTYPE3 html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <title>
+                Página Principal
+            </title>
+            {% bootstrap_css %}
+
+        </head>
+        <body>
+            <header>
+                <nav id="professors" class="navbar navbar-dark bg-primary">
+                    <a class="navbar-brand" href="{% url 'index.html' %}">Home Page</a>
+                    <a class="navbar-brand" href="{% url 'registrations.html' %}">Registrations</a>
+                    <a class="navbar-brand" href="{% url 'contact.html' %}">Contact</a>
+                </nav>
+            </header>
+            
+            <h1>
+                Página Principal - GSS
+            </h1>
+            <h2>
+                Seja bem-vindo ao WEB GSS 2.0 
+            </h2>
+            {% bootstrap_messages %}
+                
+            {% bootstrap_javascript jquery='full' %}
+        </body>
+    </html>
+</DOCTYPE3>

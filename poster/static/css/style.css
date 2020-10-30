@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+body div#cards {
+    margin-left: 75px;
+    margin-top: 15px;
+}
+
+body div#cards div#each-card {
+    margin: 20px;
+    margin-top: 10px;
+}
+
+body h1.page-describer {
+    margin-top: 3px;
+    margin-left: 75px;
+    padding: 9px;
+}

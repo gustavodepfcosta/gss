@@ -12,6 +12,37 @@ def index(request):
 def registrations(request):
     return render(request, 'registrations.html')
 
+
+def new_student(request):
+    form = StudentModelForm(request.POST or None)
+
+    if str(request.method) == 'POST':
+        if form.is_valid():
+            form.save()
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            age = form.cleaned_Data['age']
+
+            print(first_name)
+            print(last_name)
+            print(age)
+
+            messages.success(request, 'New student registered successfully')
+            form = StudentModelForm()
+
+        else:
+            messages.error(request, 'Oops! Something went wrong. Please, try again later.')
+
+    else:
+        form = StudentModelForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'new-student.html', context)
+
+
 def new_professor(request):
     form = ProfessorModelForm(request.POST or None)
 
@@ -77,7 +108,7 @@ def contact(request):
 
         else:
             messages.error(request, 'Oops! Something went wrong. Please, try again later.')
-    
+            
     else:
         form = ContactModelForm()
 

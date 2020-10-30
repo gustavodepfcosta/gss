@@ -1,0 +1,41 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <title>
+                New Student
+            </title>
+            {% bootstrap_css %}
+
+        </head>
+        <body>
+            <header>
+                <nav id="professors" class="navbar navbar-dark bg-primary">
+                    <a class="navbar-brand" href="{% url 'index.html' %}">Home Page</a>
+                    <a class="navbar-brand" href="{% url 'registrations.html' %}">Registrations</a>
+                    <a class="navbar-brand" href="{% url 'contact.html' %}">Contact</a>
+                </nav>
+            </header>
+            <center>
+            <h1 class="page-describer">
+                New Student
+            </h1>
+            {% bootstrap_messages %}
+            <h2>
+                Fill the form below
+            </h2>
+            </center>            
+            <form action="{% url 'new-student.html' %}" method="POST" class="form" autocomplete="on">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                <button type="submit" class="btn btn-primary">
+                    Register
+                </button>
+                {% endbuttons %}
+            </form>
+
+            {% bootstrap_javascript jquery='full' %}
+        </body>
+    </html>

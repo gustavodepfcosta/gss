@@ -15,6 +15,16 @@ class ProfessorModelForm(forms.ModelForm):
         ]
 
 
+class StudentModelForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = [
+            'first_name',
+            'last_name',
+            'age',
+        ]
+
+
 class ContactModelForm(forms.ModelForm):
     class Meta:
         model = Contact

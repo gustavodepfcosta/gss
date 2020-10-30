@@ -6,5 +6,6 @@ urlpatterns = [
     path('', index, name='index.html'),
     path('registrations/', registrations, name='registrations.html'),
     path('new-professor/', new_professor, name='new-professor.html'),
-    path('contact/', contact, name="contact.html")
+    path('new-student', new_student, name='new-student.html'),
+    path('contact/', contact, name="contact.html"),
 ]

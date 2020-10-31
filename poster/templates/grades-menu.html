@@ -22,22 +22,28 @@
             </header>
             
             <h1 class="page-describer">
-                Where do you desire to go?
+                Choose which subject you wish to assign grades
             </h1>
 
             <!-- subjects cards being displayed in real time by a python for loop -->
-            
-            {% for subject in subjects %}
+            <div class="subject_shower">
+                <div class="row">
 
-            <div class="jumbotron">
-                <h1 class="display-4">{{ subject.subject_name }}</h1>
-                <p class="lead">{{ subject.year }} ---> {{ subject.professor_id }}</p>
-                <hr class="my-4">
-                <p></p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Assign Grades</a>
+                    {% for subject in subjects %}
+                    
+                        <div class="card-columns" style="width: 45rem;">
+                            <img class="card-img-top" src="{% static 'images/professor-default-picture.jpg' %}" alt="Card image cap">
+                            <div class="card-body">
+                            <a href="{% url 'index.html' %}">
+                            <p class="card-text"> <b>Subject:</b> {{ subject.subject_name }} <br><br> {{ subject.professor_id }} <br><br> <b>Year:</b> {{ subject.year }}</p>
+                            </a>
+                            </div>
+                        </div>
+                    
+                    {% endfor %}
+
+                </div>
             </div>
-
-            {% endfor %}
                 
             {% bootstrap_javascript jquery='full' %}
 

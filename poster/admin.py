@@ -15,3 +15,7 @@ class NewStudentAdmin(admin.ModelAdmin):
 @admin.register(Guardian)
 class NewGuardianAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(Subject)
+class NewSubjectAdmin(admin.ModelAdmin):
+    pass

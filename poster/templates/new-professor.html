@@ -1,4 +1,5 @@
 {% load bootstrap4 %}
+{% load static %}
 <!DOCTYPE html>
     <html lang="pt-br">
         <head>
@@ -7,7 +8,7 @@
                 New Professor
             </title>
             {% bootstrap_css %}
-            <link ref="stylesheet" href="./../static/css/style.css">
+            <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
         </head>
         <body>
@@ -15,20 +16,25 @@
                 <nav id="professors" class="navbar navbar-dark bg-primary">
                     <a class="navbar-brand" href="{% url 'index.html' %}">Home Page</a>
                     <a class="navbar-brand" href="{% url 'registrations.html' %}">Registrations</a>
+                    <a class="navbar-brand" href="{% url 'grades-menu.html' %}">Grades</a>
                     <a class="navbar-brand" href="{% url 'contact.html' %}">Contact</a>
                 </nav>
             </header>
             
             <h1 class="page-describer">
                 New Professor
-            </h1>
-            {% bootstrap_messages %}
-            <h2>
+            </h1">
+
+            <h2 class="page-describer">
                 Fill the form below
             </h2>
-            
+
+            <div class="bootstrap-messages">
+                {% bootstrap_messages %}
+            </div>
+        
             <div class="form-group">        
-                <form action="{% url 'new-professor.html' %}" method="POST" class="form" autocomplete="on">
+                <form action="{% url 'new-professor.html' %}" method="POST" class="form" autocomplete="on" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% bootstrap_form form %}
                     {% buttons %}

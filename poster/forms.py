@@ -58,3 +58,4 @@ class SubjectModelForm(forms.ModelForm):
             'year',
             'professor_id',
         ]
+        

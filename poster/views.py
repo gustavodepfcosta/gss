@@ -97,6 +97,21 @@ def new_subject(request):
     return render(request, 'new-subject.html', context)
 
 
+def grades_menu(request):
+
+    context = {
+        'subjects': Subject.objects.all(),
+        'professors': Professor.objects.all(),
+    }
+
+    return render(request, 'grades-menu.html', context)
+ 
+
+def grades_manager(request):
+
+    return render(request, 'grades-manager.html')
+
+
 def new_professor(request):
     form = ProfessorModelForm(request.POST or None)
 

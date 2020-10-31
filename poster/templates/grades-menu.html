@@ -1,11 +1,11 @@
 {% load bootstrap4 %}
 {% load static %}
-<!DOCTYPE html>
-    <html lang="pt-br">
+<DOCTYPE3 html>
+    <html lang="en-us">
         <head>
             <meta charset="UTF-8">
             <title>
-                New Student
+                Subject Selection
             </title>
             {% bootstrap_css %}
             <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -22,30 +22,25 @@
             </header>
             
             <h1 class="page-describer">
-                New Student
+                Where do you desire to go?
             </h1>
 
-            <div class="bootstrap-messages">
-                {% bootstrap_messages %}
-            </div>
+            <!-- subjects cards being displayed in real time by a python for loop -->
             
-            <h2 class="page-describer">
-                Fill the form below
-            </h2>
-            
-            <div class="form-group">
-                <form action="{% url 'new-student.html' %}" method="POST" class="form" autocomplete="on">
-                    {% csrf_token %}
-                    {% bootstrap_form form %}
-                    {% buttons %}
-                    <button type="submit" class="btn btn-primary">
-                        Register
-                    </button>
-                    {% endbuttons %}
-                </form>
+            {% for subject in subjects %}
+
+            <div class="jumbotron">
+                <h1 class="display-4">{{ subject.subject_name }}</h1>
+                <p class="lead">{{ subject.year }} ---> {{ subject.professor_id }}</p>
+                <hr class="my-4">
+                <p></p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Assign Grades</a>
             </div>
 
+            {% endfor %}
+                
             {% bootstrap_javascript jquery='full' %}
-            
+
         </body>
     </html>
+</DOCTYPE3>

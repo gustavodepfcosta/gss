@@ -62,14 +62,40 @@ def new_guardian(request):
             messages.error(request, 'Oops! Something went wrong. Please, try again later.')
         
     else:
-        form = GuardianModelForm
+        form = GuardianModelForm()
 
     context = {
         'form': form,
     }
 
     return render(request, 'new-guardian.html', context)
-    
+
+
+def new_subject(request):
+    form = SubjectModelForm(request.POST or None)
+
+    if str(request.method) == 'POST':
+        if form.is_valid():
+            form.save()
+            subject_name = form.cleaned_data['subject_name']
+            year = form.cleaned_data['year']
+            professor_id = form.cleaned_data['professor_id']
+
+            messages.success(request, 'New Subject registered successfully')
+            form = SubjectModelForm()
+
+        else:
+            messages.error(request, 'Oops! Something went wrong. Please, try again later.')
+
+    else:
+        form = SubjectModelForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'new-subject.html', context)
+
 
 def new_professor(request):
     form = ProfessorModelForm(request.POST or None)
@@ -82,8 +108,6 @@ def new_professor(request):
             email = form.cleaned_data['email']
             graduation = form.cleaned_data['graduation']
             phone_number = form.cleaned_data['phone_number']
-            picture = form.cleaned_data['picture']
-
 
             print('Professor cadastrado com sucesso')
             print(f'First Name: {first_name}')
@@ -91,7 +115,6 @@ def new_professor(request):
             print(f'e-mail: {email}')
             print(f'Graduation: {graduation}')
             print(f'Phone Number: {phone_number}')
-            print(f'Picture URL: {picture}')
 
             messages.success(request, 'New professor registered successfully!')
             form = ProfessorModelForm()

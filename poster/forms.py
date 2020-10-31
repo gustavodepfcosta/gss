@@ -11,7 +11,6 @@ class ProfessorModelForm(forms.ModelForm):
             'email',
             'graduation',
             'phone_number',
-            'picture',
         ]
 
 
@@ -48,4 +47,14 @@ class GuardianModelForm(forms.ModelForm):
             'phone_number',
             'address',
         ]
-        
+
+class SubjectModelForm(forms.ModelForm):
+    professor_id = forms.ModelChoiceField(queryset=Professor.objects.all(), initial=0, label='Which Professor is responsible this subject?')
+
+    class Meta:
+        model = Subject
+        fields = [
+            'subject_name',
+            'year',
+            'professor_id',
+        ]

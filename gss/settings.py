@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'poster',
     'bootstrap4',
-    'stdimage',
+    'psycopg2',
 ]
 
 MIDDLEWARE = [
@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'gss.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'gss_application',
+        'HOST': 'localhost',
+        'USER': 'postgres',
+        'PASSWORD': 'BuRZuM666',
+        'PORT': 5432,
     }
 }
 

@@ -128,3 +128,12 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# e-mail settings commented because I'm not connected to any providing service
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# EMAIL_HOST = 'localhost'
+# EMAIL_HOST_USER = 'no-reply@mydomain.com.br'
+# EMAIL_PORT = 587
+# EMAIL_USER_TLS = True #Criptografia ou não!
+# EMAIL_HOST_PASSWORD = 'password123' #senha do e-mail no-reply

@@ -13,6 +13,12 @@ def registrations(request):
     return render(request, 'registrations.html')
 
 
+def enrollments(request):
+    context = {}
+
+    return render(request, 'enrollments.html', context)
+
+
 def new_student(request):
     form = StudentModelForm(request.POST or None)
 
@@ -101,7 +107,6 @@ def grades_menu(request):
 
     context = {
         'subjects': Subject.objects.all(),
-        'professors': Professor.objects.all(),
     }
 
     return render(request, 'grades-menu.html', context)
@@ -153,21 +158,7 @@ def contact(request):
     if str(request.method) == 'POST':
         if form.is_valid():
             form.save()
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            email = form.cleaned_data['email']
-            phone_number = form.cleaned_data['phone_number']
-            subject = form.cleaned_data['subject']
-            message = form.cleaned_data['message']
-
-
-            print('Message sent successfully')
-            print(f'First Name: {first_name}')
-            print(f'Last Name: {last_name}')
-            print(f'e-mail: {email}')
-            print(f'Phone Number: {phone_number}')
-            print(f'Subject: {subject}')
-            print(f'Message: {message}')
+            form.send_mail()
 
             messages.success(request, 'Message sent successfully')
             form = ContactModelForm()

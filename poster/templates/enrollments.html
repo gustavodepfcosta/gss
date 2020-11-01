@@ -1,11 +1,12 @@
 {% load bootstrap4 %}
 {% load static %}
-<!DOCTYPE html>
+
+<DOCTYPE3 html>
     <html lang="pt-br">
         <head>
             <meta charset="UTF-8">
             <title>
-                New Student
+                Enrollments
             </title>
             {% bootstrap_css %}
             <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -23,30 +24,14 @@
             </header>
             
             <h1 class="page-describer">
-                New Student
+                Enrollments Manager
             </h1>
-
-            <div class="bootstrap-messages">
-                {% bootstrap_messages %}
-            </div>
-            
             <h2 class="page-describer">
-                Fill the form below
+                Manage enrollments easily
             </h2>
-            
-            <div class="form-group">
-                <form action="{% url 'new-student.html' %}" method="POST" class="form" autocomplete="on">
-                    {% csrf_token %}
-                    {% bootstrap_form form %}
-                    {% buttons %}
-                    <button type="submit" class="btn btn-primary">
-                        Register
-                    </button>
-                    {% endbuttons %}
-                </form>
-            </div>
-
+            {% bootstrap_messages %}
+                
             {% bootstrap_javascript jquery='full' %}
-            
         </body>
     </html>
+</DOCTYPE3>

@@ -56,4 +56,10 @@ urlpatterns = [
         contact, 
         name="contact.html",
         ),
+
+    path(
+        'enrollments/',
+        enrollments,
+        name='enrollments.html',
+    )
 ]

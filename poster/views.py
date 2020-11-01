@@ -25,13 +25,6 @@ def new_student(request):
     if str(request.method) == 'POST':
         if form.is_valid():
             form.save()
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            age = form.cleaned_Data['age']
-
-            print(first_name)
-            print(last_name)
-            print(age)
 
             messages.success(request, 'New student registered successfully')
             form = StudentModelForm()
@@ -55,11 +48,6 @@ def new_guardian(request):
     if str(request.method) == 'POST':
         if form.is_valid():
             form.save()
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            email = form.cleaned_data['email']
-            phone_number = form.cleaned_data['phone_number']
-            address = form.cleaned_data['address']
 
             messages.success(request, 'New guardian registered successfully')
             form = GuardianModelForm
@@ -83,9 +71,6 @@ def new_subject(request):
     if str(request.method) == 'POST':
         if form.is_valid():
             form.save()
-            subject_name = form.cleaned_data['subject_name']
-            year = form.cleaned_data['year']
-            professor_id = form.cleaned_data['professor_id']
 
             messages.success(request, 'New Subject registered successfully')
             form = SubjectModelForm()
@@ -123,18 +108,6 @@ def new_professor(request):
     if str(request.method) == 'POST':
         if form.is_valid():
             form.save()
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            email = form.cleaned_data['email']
-            graduation = form.cleaned_data['graduation']
-            phone_number = form.cleaned_data['phone_number']
-
-            print('Professor cadastrado com sucesso')
-            print(f'First Name: {first_name}')
-            print(f'Last Name: {last_name}')
-            print(f'e-mail: {email}')
-            print(f'Graduation: {graduation}')
-            print(f'Phone Number: {phone_number}')
 
             messages.success(request, 'New professor registered successfully!')
             form = ProfessorModelForm()

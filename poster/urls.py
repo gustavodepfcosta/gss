@@ -61,5 +61,17 @@ urlpatterns = [
         'enrollments/',
         enrollments,
         name='enrollments.html',
-    )
+    ),
+
+    path(
+        'subscriptions-menu/',
+        subscriptions_menu,
+        name='subscriptions-menu.html',
+    ),
+
+    path(
+        'student-guardian-menu/',
+        students_guardians_menu,
+        name='student-guardian-menu.html',
+    ),
 ]

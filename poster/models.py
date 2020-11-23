@@ -2,8 +2,7 @@ from django.db import models
 from django.db.models import signals
 from django.db.models.fields import CharField
 from django.db.models.fields.related import ForeignKey
-from django.template.defaultfilters import slugify
-from stdimage.models import StdImageField
+from django.template.defaultfilters import default, slugify
 from datetime import datetime
 from django.utils import timezone
 
@@ -11,7 +10,7 @@ from django.utils import timezone
 class BaseModel(models.Model):
     created = models.DateField('Created', auto_now_add=True)
     modified = models.DateField('Modified', auto_now=True)
-    active = models.DateTimeField('Active', default=timezone.now())
+    active = models.DateTimeField('Active', default=timezone.now)
 
     class Meta:
         abstract = True
@@ -23,7 +22,7 @@ class Professor(BaseModel):
     email = models.EmailField('e-mail', max_length=100)
     graduation = models.CharField('Graduation', max_length=100)
     phone_number = models.IntegerField('Phone Number')
-    picture = StdImageField('Picture', variations={'thumb': (124, 124)})
+    picture = models.ImageField('Picture', default='static/images/professor-default-picture.jpg')
 
     def __str__(self) -> str:
         return f'{self.first_name} {self.last_name} - Graduation: {self.graduation}'

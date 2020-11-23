@@ -1,0 +1,57 @@
+{% load bootstrap4 %}
+{% load static %}
+<DOCTYPE3 html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <title>
+                Subjects Enrollments
+            </title>
+            {% bootstrap_css %}
+            <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+        </head>
+        <body>
+            <header>
+                <nav id="professors" class="navbar navbar-dark bg-primary">
+                    <a class="navbar-brand" href="{% url 'index.html' %}">Home Page</a>
+                    <a class="navbar-brand" href="{% url 'enrollments.html' %}">Enrollments</a>
+                    <a class="navbar-brand" href="{% url 'registrations.html' %}">Registrations</a>
+                    <a class="navbar-brand" href="{% url 'grades-menu.html' %}">Grades</a>
+                    <a class="navbar-brand" href="{% url 'contact.html' %}">Contact</a>
+                </nav>
+            </header>
+            
+            <h1 class="page-describer">
+                Student-Guardians Enrollments
+            </h1>
+
+            <div class="bootstrap-messages">
+                {% bootstrap_messages %}
+            </div>
+
+            <h2 class="page-describer">
+                Manage the guardians for a given student
+            </h2>
+
+            <div class="form-group">
+                <form action="{% url 'subscriptions-menu.html' %}" method="POST" class="form" autocomplete="on">
+
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    {% buttons %}
+                    
+                    <button type="submit" class="btn btn-primary">
+                        Assign
+                    </button>
+                    {% endbuttons %}
+                </form>
+            </div>           
+
+            
+                
+            {% bootstrap_javascript jquery='full' %}
+
+        </body>
+    </html>
+</DOCTYPE3>

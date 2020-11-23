@@ -51,16 +51,41 @@ class SubjectModelForm(forms.ModelForm):
         ]
 
 
+class SubscriptionsModelForm(forms.ModelForm):
+    student_id = forms.ModelChoiceField(queryset=Student.objects.all(), initial=0, label='To which student would you like to assign a subject?')
+    subject_id = forms.ModelChoiceField(queryset=Subject.objects.all(), initial=0, label='Which subject?')
+    
+    class Meta:
+        model = Subscriptions
+        fields = [
+            'student_id',
+            'subject_id',
+        ]
+
+
+class StudentGuardianForm(forms.ModelForm):
+    student_id = forms.ModelChoiceField(queryset=Student.objects.all(), initial=0, label='To which student would you like to assign a guardian?')
+    guardian_id = forms.ModelChoiceField(queryset=Guardian.objects.all(), initial=0, label='Which guardian?')
+    
+    class Meta:
+        model = GuardianStudentBridge
+        fields = [
+            'student_id',
+            'guardian_id',
+        ]
+
+
 class ContactModelForm(forms.ModelForm):
-    model = Contact
-    fields = [
-        'first_name',
-        'last_name',
-        'email',
-        'phone_number',
-        'subject',
-        'message',
-    ]
+    class Meta:
+        model = Contact
+        fields = [
+            'first_name',
+            'last_name',
+            'email',
+            'phone_number',
+            'subject',
+            'message',
+        ]
 
     def send_mail(self):
         first_name = self.cleaned_data['first_name']

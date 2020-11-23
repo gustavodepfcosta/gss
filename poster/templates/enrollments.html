@@ -1,12 +1,11 @@
 {% load bootstrap4 %}
 {% load static %}
-
 <DOCTYPE3 html>
     <html lang="pt-br">
         <head>
             <meta charset="UTF-8">
             <title>
-                Enrollments
+                Página Principal
             </title>
             {% bootstrap_css %}
             <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -24,14 +23,41 @@
             </header>
             
             <h1 class="page-describer">
-                Enrollments Manager
+                Where do you desire to go?
             </h1>
-            <h2 class="page-describer">
-                Manage enrollments easily
-            </h2>
-            {% bootstrap_messages %}
+
+            <!-- professors card -->
+            
+            <div id="cards" class="card-columns">
+
+                <div id="each-card" class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./../static/images/subscription.png" alt="Card image cap">
+                    <div class="card-body">
+                    <center>
+                        <h5 class="card-title">Subjects Enrollments</h5>
+                        <p class="card-text">Manage which students go to which class</p>
+                        <a href="{% url 'subscriptions-menu.html' %}" class="btn btn-primary">Go</a>
+                    </center>
+                    </div>
+                </div>
+
+            <!-- students card -->
+
+                <div id="each-card" class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./../static/images/student-parent.jpeg" alt="Card image cap">
+                    <div class="card-body">
+                    <center>
+                        <h5 class="card-title">Students-Parents Enrollments</h5>
+                        <p class="card-text">Manage which guardians are responsible for which student</p>
+                        <a href="{% url 'student-guardian-menu.html' %}" class="btn btn-primary">Go</a>
+                    </center>
+                    </div>
+                </div>
+
+            </div>
                 
             {% bootstrap_javascript jquery='full' %}
+
         </body>
     </html>
 </DOCTYPE3>

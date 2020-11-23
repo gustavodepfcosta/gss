@@ -1,5 +1,4 @@
 from django.contrib.messages.api import error
-from django.http.request import RAISE_ERROR
 from poster.forms import *
 from django.shortcuts import render
 from django.contrib import messages
@@ -13,10 +12,54 @@ def registrations(request):
     return render(request, 'registrations.html')
 
 
-def enrollments(request):
-    context = {}
+def subscriptions_menu(request):
+    form = SubscriptionsModelForm(request.POST or None)
 
-    return render(request, 'enrollments.html', context)
+    if str(request.method) == 'POST':
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, 'Done!')
+            form = SubscriptionsModelForm()
+
+        else:
+            messages.error(request, 'Oops! Something went wrong.')
+
+    else:
+        form = SubscriptionsModelForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'subscriptions-menu.html', context)
+
+
+def students_guardians_menu(request):
+    form = StudentGuardianForm(request.POST or None)
+
+    if str(request.method) == 'POST':
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, 'Done!')
+            form = StudentGuardianForm()
+
+        else:
+            messages.error(request, 'Oops! Something went wrong.')
+
+    else:
+        form = StudentGuardianForm()
+
+    context = {
+        'form': form,
+    }
+            
+    return render(request, 'student-guardian-menu.html', context)
+
+
+def enrollments(request):
+    return render(request, 'enrollments.html')
 
 
 def new_student(request):

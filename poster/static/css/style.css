@@ -1,17 +1,17 @@
 @charset "UTF-8";
 
-body div#cards {
+div#cards {
     width: 90%;
     margin-left: 9%;
     margin-right: 7%;
     margin-top: 15px;
 }
 
-body div#cards div#each-card {
+div#cards div#each-card {
     margin: 15px;
 }
 
-body h1.page-describer {
+h1.page-describer {
     margin-right: 5%;
     margin-top: 1%;
     margin-left: 5%;
@@ -19,14 +19,46 @@ body h1.page-describer {
     border-bottom: 1px solid black;
 }
 
-body h2.page-describer {
+h2.page-describer {
     margin-left: 5.5%;
     margin-bottom: 2%;
 }
 
-body div.form-group {
+div.form-group {
     display: block;
-    width: 1500px;
+    width: 94%;
     margin-left: auto;
     margin-right: auto;
+}
+
+div.bootstrap-messages {
+    width: 93%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.subject_shower {
+    display: grid;
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.subject_shower div.card-columns {
+    box-shadow: 3px 2px black;
+    border: 1px solid black;
+    padding: 5px;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.subject_shower div.card-columns p.card-text {
+    width: 230%;
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }

@@ -1,4 +1,5 @@
 {% load bootstrap4 %}
+{% load static %}
 <DOCTYPE3 html>
     <html lang="pt-br">
         <head>
@@ -7,7 +8,7 @@
                 Página Principal
             </title>
             {% bootstrap_css %}
-            <link rel="stylesheet" href="./../static/css/style.css">
+            <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
         </head>
         <body>
@@ -16,74 +17,36 @@
                     <a class="navbar-brand" href="{% url 'index.html' %}">Home Page</a>
                     <a class="navbar-brand" href="{% url 'enrollments.html' %}">Enrollments</a>
                     <a class="navbar-brand" href="{% url 'registrations.html' %}">Registrations</a>
-                    <a class="navbar-brand" href="{% url 'grades-menu.html' %}">Grades</a>
+                    <a class="navbar-brand" href="{% url 'grades-manager.html' %}">Grades</a>
                     <a class="navbar-brand" href="{% url 'contact.html' %}">Contact</a>
                 </nav>
             </header>
+
+            <div class="bootstrap-messages">
+                {% bootstrap_messages %}
+            </div>
             
             <h1 class="page-describer">
-                Where do you desire to go?
+                Choose the subject
             </h1>
+            <h2 class="page-describer">
+                 then the student
+            </h2>
 
-            <!-- professors card -->
 
-            <div id="cards" class="card-columns">
-
-                <div id="each-card" class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="./../static/images/professor.jpeg" alt="Card image cap">
-                    <div class="card-body">
-                    <center>
-                        <h5 class="card-title">Professors</h5>
-                        <p class="card-text">Register new professors or visualize existing ones</p>
-                        <a href="{% url 'new-professor.html' %}" class="btn btn-primary">Register</a>
-                        <a href="{% url 'new-professor.html' %}" class="btn btn-primary">Visualize</a>
-                    </center>
-                    </div>
-                </div>
-
-            <!-- students card -->
-
-                <div id="each-card" class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="./../static/images/student.jpg" alt="Card image cap">
-                    <div class="card-body">
-                    <center>
-                        <h5 class="card-title">Students</h5>
-                        <p class="card-text">Register new students or visualize existing ones</p>
-                        <a href="{% url 'new-student.html' %}" class="btn btn-primary">Register</a>
-                        <a href="{% url 'new-student.html' %}" class="btn btn-primary">Visualize</a>
-                    </center>
-                    </div>
-                </div>
-
-            <!-- guardians card -->
-
-                <div id="each-card" class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="./../static/images/guardians.jpg" alt="Card image cap">
-                    <div class="card-body">
-                    <center>
-                        <h5 class="card-title">Guardians</h5>
-                        <p class="card-text">Register new guardians or visualize existing ones</p>
-                        <a href="{% url 'new-guardian.html' %}" class="btn btn-primary">Register</a>
-                        <a href="{% url 'new-guardian.html' %}" class="btn btn-primary">Visualize</a>
-                    </center>
-                    </div>
-                </div>
-
-            <!-- subjects card -->
-
-                <div id="each-card" class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="./../static/images/subjects.jpeg" alt="Card image cap">
-                    <div class="card-body">
-                    <center>
-                        <h5 class="card-title">Subjects</h5>
-                        <p class="card-text">Register new subjects or visualize existing ones</p>
-                        <a href="{% url 'new-subject.html' %}" class="btn btn-primary">Register</a>
-                        <a href="{% url 'new-subject.html' %}" class="btn btn-primary">Visualize</a>
-                    </center>
-                    </div>
-                </div>
-
+            <div class="form-group">
+                <form action="{% url 'grades-manager.html' %}" method="POST" class="form" autocomplete="on">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    {% buttons %}
+                    <button type="submit" class="btn btn-primary">
+                        Assign Grades
+                    </button>
+                    {% endbuttons %}
+                </form>
             </div>
+
+
                 
             {% bootstrap_javascript jquery='full' %}
 

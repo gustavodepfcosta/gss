@@ -40,13 +40,7 @@ urlpatterns = [
         ),
 
     path(
-        'grades-menu/', 
-        grades_menu, 
-        name='grades-menu.html',
-        ),
-
-    path(
-        'grades-menu/grades-manager/', 
+        'grades-manager/', 
         grades_manager, 
         name='grades-manager.html',
         ),

@@ -129,20 +129,29 @@ def new_subject(request):
     }
 
     return render(request, 'new-subject.html', context)
-
-
-def grades_menu(request):
-
-    context = {
-        'subjects': Subject.objects.all(),
-    }
-
-    return render(request, 'grades-menu.html', context)
  
 
 def grades_manager(request):
+    form = GradesForm()
 
-    return render(request, 'grades-manager.html')
+    if str(request.method) == 'POST':   
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, 'Grades assigned successfully')
+            form = GradesForm()
+
+        else:
+            messages.error(request, 'Oops! Somethig went worng. Please, try again later!')
+
+    else:
+        form = GradesForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'grades-manager.html', context)
 
 
 def new_professor(request):

@@ -75,6 +75,19 @@ class StudentGuardianForm(forms.ModelForm):
         ]
 
 
+class GradesForm(forms.ModelForm):
+    subject_id = forms.ModelChoiceField(queryset=Subject.objects.all(), initial=0, label='Subject to assign')
+    student_id = forms.ModelChoiceField(queryset=Student.objects.all(), initial=0, label='Student to assign')
+
+    class Meta:
+        model = Grades
+        fields = [
+            'test1',
+            'test2',
+            'project',
+        ]
+
+
 class ContactModelForm(forms.ModelForm):
     class Meta:
         model = Contact

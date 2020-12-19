@@ -74,9 +74,9 @@ class GuardianStudentBridge(BaseModel):
 
 
 class Grades(BaseModel):
-    test1 = models.IntegerField('Test 1', blank=True)
-    test2 = models.IntegerField('Test 2', blank=True)
-    project = models.IntegerField('Project', blank=True)
+    test1 = models.FloatField('Test 1')
+    test2 = models.FloatField('Test 2')
+    project = models.FloatField('Project')
     student_id = ForeignKey(Student, on_delete=models.RESTRICT)
     subject_id = ForeignKey(Subject, on_delete=models.RESTRICT)
 

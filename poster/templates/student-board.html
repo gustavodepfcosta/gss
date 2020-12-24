@@ -5,10 +5,9 @@
         <head>
             <meta charset="UTF-8">
             <title>
-                New Guardian
+                Students Board
             </title>
             {% bootstrap_css %}
-
             <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
         </head>
@@ -22,38 +21,27 @@
                     <a class="navbar-brand" href="{% url 'contact.html' %}">Contact</a>
                 </nav>
             </header>
+            
             <h1 class="page-describer">
-                New Guardian
-            </h1>
+                Students Board
+            </h1">
+
+            <h2 class="page-describer">
+                Students registered will appear here
+            </h2>
 
             <div class="bootstrap-messages">
                 {% bootstrap_messages %}
             </div>
-            
-            <h2 class="page-describer">
-                Fill the form below
-            </h2>
-            <div class="form-group">
-                <form action="{% url 'new-guardian.html' %}" method="POST" class="form" autocomplete="on">
+        
+            <div class="boards">
+                {% for student in students %}
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-mine">{{ student.first_name }} {{ student.last_name }} - {{ student.age}} anos</li>
+                </ul>
+                {% endfor %}
+            </div>
 
-                    {% csrf_token %}
-                    {% bootstrap_form form %}
-                    {% buttons %}
-                    
-                    <button type="submit" class="btn btn-primary">
-                        Register
-                    </button>
-                    {% endbuttons %}
-                </form>
-            </div>    
-            
-            <footer>
-                <center>
-                    <h2>
-                        ---- Developed by Gustavo Costa in São Paulo, Brazil ----
-                    </h2>
-                </center>
-            </footer>
             {% bootstrap_javascript jquery='full' %}
         </body>
     </html>

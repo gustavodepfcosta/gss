@@ -5,7 +5,7 @@
         <head>
             <meta charset="UTF-8">
             <title>
-                New Professor
+                Professors Board
             </title>
             {% bootstrap_css %}
             <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -34,11 +34,21 @@
                 {% bootstrap_messages %}
             </div>
         
-            <div class="board">
-                {% for professor in board %}
+            <div class="boards">
+                {% for professor in professors %}
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-mine">{{ professor.first_name }} {{ professor.last_lame }} - {{ professor.graduation }}</li>
+                </ul>
+                {% endfor %}
             </div>
             
-            {% endfor %}
+            <footer>
+                <center>
+                    <h2>
+                        ---- Developed by Gustavo Costa in São Paulo, Brazil ----
+                    </h2>
+                </center>
+            </footer>
 
             {% bootstrap_javascript jquery='full' %}
         </body>

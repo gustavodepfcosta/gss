@@ -5,16 +5,15 @@
         <head>
             <meta charset="UTF-8">
             <title>
-                New Guardian
+                Guardians Board
             </title>
             {% bootstrap_css %}
-
             <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
         </head>
         <body>
             <header>
-                <nav id="professors" class="navbar navbar-dark bg-primary">
+                <nav id="Guardians" class="navbar navbar-dark bg-primary">
                     <a class="navbar-brand" href="{% url 'index.html' %}">Home Page</a>
                     <a class="navbar-brand" href="{% url 'enrollments.html' %}">Enrollments</a>
                     <a class="navbar-brand" href="{% url 'registrations.html' %}">Registrations</a>
@@ -22,30 +21,26 @@
                     <a class="navbar-brand" href="{% url 'contact.html' %}">Contact</a>
                 </nav>
             </header>
+            
             <h1 class="page-describer">
-                New Guardian
-            </h1>
+                Guardians Board
+            </h1">
+
+            <h2 class="page-describer">
+                Guardians registered will appear here
+            </h2>
 
             <div class="bootstrap-messages">
                 {% bootstrap_messages %}
             </div>
-            
-            <h2 class="page-describer">
-                Fill the form below
-            </h2>
-            <div class="form-group">
-                <form action="{% url 'new-guardian.html' %}" method="POST" class="form" autocomplete="on">
-
-                    {% csrf_token %}
-                    {% bootstrap_form form %}
-                    {% buttons %}
-                    
-                    <button type="submit" class="btn btn-primary">
-                        Register
-                    </button>
-                    {% endbuttons %}
-                </form>
-            </div>    
+        
+            <div class="boards">
+                {% for guardian in guardians %}
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-mine">{{ guardian.first_name }} {{ guardian.last_name }} | Phone: {{ guardian.phone_number }} | Address: {{ guardian.address }}</li>
+                </ul>
+                {% endfor %}
+            </div>
             
             <footer>
                 <center>
@@ -54,6 +49,7 @@
                     </h2>
                 </center>
             </footer>
+
             {% bootstrap_javascript jquery='full' %}
         </body>
     </html>

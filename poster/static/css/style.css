@@ -20,7 +20,7 @@ h1.page-describer {
 }
 
 h2.page-describer {
-    margin-left: 5.2%;
+    margin-left: 5.6%;
     margin-bottom: 2%;
 }
 
@@ -63,7 +63,7 @@ a {
     color: black;
 }
 
-div.left-body {
+div.body {
     display: block;
     position: absolute;
     width: 63.5%;
@@ -71,23 +71,37 @@ div.left-body {
     border-right: 1px solid black;
 }
 
-div.left-body h1.body-page-title {
+div.body h1.body-page-title {
     font-size: 10pt;
     margin-left: 2%;
 }
 
-div.left-body div.listing {
+div.body div.listing {
     width: 90%;
 }
 
-div.left-body ul {
+div.body ul {
     width: 90%;
     margin-top: 4px;
     padding: 2px;
     padding-top: 5px;
 }
 
-div.left-body ul li {
+div.body ul li {
+    margin-top: 8px;
+}
+
+div.boards {
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.boards ul {
+    padding: 2px;
+}
+
+div.boards ul li {
     margin-top: 8px;
 }
 
@@ -99,7 +113,7 @@ aside.container {
     width: 25%;
 }
 
-aside.container h1.aside-page-describer {
+aside.container h1.aside-page-title {
     margin-right: 5%;
     margin-top: 15px;
     margin-left: 2%;

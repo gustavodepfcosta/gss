@@ -37,7 +37,7 @@
                         <h5 class="card-title">Professors</h5>
                         <p class="card-text">Register new professors or visualize existing ones</p>
                         <a href="{% url 'new-professor.html' %}" class="btn btn-primary">Register</a>
-                        <a href="{% url 'new-professor.html' %}" class="btn btn-primary">Visualize</a>
+                        <a href="{% url 'professor-board.html' %}" class="btn btn-primary">Visualize</a>
                     </center>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                         <h5 class="card-title">Students</h5>
                         <p class="card-text">Register new students or visualize existing ones</p>
                         <a href="{% url 'new-student.html' %}" class="btn btn-primary">Register</a>
-                        <a href="{% url 'new-student.html' %}" class="btn btn-primary">Visualize</a>
+                        <a href="{% url 'student-board.html' %}" class="btn btn-primary">Visualize</a>
                     </center>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         <h5 class="card-title">Guardians</h5>
                         <p class="card-text">Register new guardians or visualize existing ones</p>
                         <a href="{% url 'new-guardian.html' %}" class="btn btn-primary">Register</a>
-                        <a href="{% url 'new-guardian.html' %}" class="btn btn-primary">Visualize</a>
+                        <a href="{% url 'guardian-board.html' %}" class="btn btn-primary">Visualize</a>
                     </center>
                     </div>
                 </div>
@@ -79,12 +79,19 @@
                         <h5 class="card-title">Subjects</h5>
                         <p class="card-text">Register new subjects or visualize existing ones</p>
                         <a href="{% url 'new-subject.html' %}" class="btn btn-primary">Register</a>
-                        <a href="{% url 'new-subject.html' %}" class="btn btn-primary">Visualize</a>
+                        <a href="{% url 'subject-board.html' %}" class="btn btn-primary">Visualize</a>
                     </center>
                     </div>
                 </div>
 
             </div>
+            <footer>
+                <center>
+                    <h2>
+                        ---- Developed by Gustavo Costa in São Paulo, Brazil ----
+                    </h2>
+                </center>
+            </footer>
                 
             {% bootstrap_javascript jquery='full' %}
 

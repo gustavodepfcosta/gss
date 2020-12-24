@@ -22,10 +22,22 @@ urlpatterns = [
         ),
 
     path(
+        'registrations/professor-board/',
+        ProfessorBoardView.as_view(),
+        name='professor-board.html',
+    ),
+
+    path(
         'registrations/new-student/', 
         NewStudentView.as_view(), 
         name='new-student.html',
         ),
+
+    path(
+        'registrations/student-board/',
+        StudentBoardView.as_view(),
+        name='student-board.html',
+    ),
 
     path(
         'registrations/new-guardian/', 
@@ -34,10 +46,22 @@ urlpatterns = [
         ),
 
     path(
+        'registrations/guardian-board/',
+        GuardianBoardView.as_view(),
+        name='guardian-board.html',
+    ),
+
+    path(
         'registrations/new-subject/', 
         NewSubjectView.as_view(), 
         name='new-subject.html',
         ),
+
+    path(
+        'registrations/subject-board/',
+        SubjectBoardView.as_view(),
+        name='subject-board.html',
+    ),
 
     path(
         'grades-manager/', 

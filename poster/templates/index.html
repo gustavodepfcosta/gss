@@ -9,7 +9,8 @@
                 Home Page
             </title>
             {% bootstrap_css %}
-            <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+            <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 
         </head>
         <body>
@@ -24,13 +25,43 @@
             </header>
             
             <h1 class="page-describer">
-                Welcome
+                Welcome... to GuC 2.0
             </h1>
             <h2 class="page-describer">
-                to WEB GSS 2.0 
+                The best scholar administration system in the world
             </h2>
-            {% bootstrap_messages %}
-                
+
+            <div class="left-body">
+                <h1 class="left-body-title">
+                    Subjects
+                </h1>
+                {% for subject in subjects %}
+                <div class="listing">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-mine">{{ subject.subject_name }} | Year: {{ subject.year }}</li>
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+
+            <aside class="container">
+                <h1 class="aside-page-describer">
+                    Professors
+                </h1>
+                {% for professor in professors %}
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-mine">{{ professor.first_name }} {{ professor.last_lame }}</li>
+                </ul>
+                {% endfor %}
+            </aside>
+            
+            <footer>
+                <center>
+                    <h2>
+                        ---- Developed by Gustavo Costa in São Paulo, Brazil ----
+                    </h2>
+                </center>
+            </footer>
             {% bootstrap_javascript jquery='full' %}
         </body>
     </html>

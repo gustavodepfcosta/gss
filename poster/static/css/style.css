@@ -62,3 +62,70 @@ a {
     text-decoration: none;
     color: black;
 }
+
+div.left-body {
+    display: block;
+    position: absolute;
+    width: 63.5%;
+    margin-left: 5%;
+    border-right: 1px solid black;
+}
+
+div.left-body h1.body-page-title {
+    font-size: 10pt;
+    margin-left: 2%;
+}
+
+div.left-body div.listing {
+    width: 90%;
+}
+
+div.left-body ul {
+    width: 90%;
+    margin-top: 4px;
+    padding: 2px;
+    padding-top: 5px;
+}
+
+div.left-body ul li {
+    margin-top: 8px;
+}
+
+aside.container {
+    float: right;
+    position: relative;
+    margin-left: -50px;
+    margin-top: -1.2%;
+    width: 25%;
+}
+
+aside.container h1.aside-page-describer {
+    margin-right: 5%;
+    margin-top: 15px;
+    margin-left: 2%;
+}
+
+aside.container ul {
+    width: 90%;
+    margin-top: 4px;
+    padding: 2px;
+    padding-top: 5px;
+}
+
+aside.container ul li {
+    margin-top: 8px;
+}
+
+footer {
+    background-color:rgb(0,121,249);
+    padding-top: 20px;
+    padding-bottom: 15px;
+    position:fixed;
+    bottom:0px;
+    width:100%;
+    color: white;
+ }
+
+ footer h2 {
+     font-size: 10pt;
+ }

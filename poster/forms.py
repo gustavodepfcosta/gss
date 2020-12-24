@@ -15,7 +15,6 @@ class ProfessorModelForm(forms.ModelForm):
             'picture',
         ]
 
-
 class StudentModelForm(forms.ModelForm):
     class Meta:
         model = Student
@@ -24,9 +23,6 @@ class StudentModelForm(forms.ModelForm):
             'last_name',
             'age',
         ]
-
-
-
 
 class GuardianModelForm(forms.ModelForm):
     class Meta:
@@ -40,7 +36,7 @@ class GuardianModelForm(forms.ModelForm):
         ]
 
 class SubjectModelForm(forms.ModelForm):
-    professor_id = forms.ModelChoiceField(queryset=Professor.objects.all(), initial=0, label='Which Professor is responsible this subject?')
+    professor_id = forms.ModelChoiceField(queryset=Professor.objects.all(), initial=-1, label='Which Professor is responsible this subject?')
 
     class Meta:
         model = Subject
@@ -49,7 +45,6 @@ class SubjectModelForm(forms.ModelForm):
             'year',
             'professor_id',
         ]
-
 
 class SubscriptionsModelForm(forms.ModelForm):
     student_id = forms.ModelChoiceField(queryset=Student.objects.all(), initial=0, label='To which student would you like to assign a subject?')
@@ -62,7 +57,6 @@ class SubscriptionsModelForm(forms.ModelForm):
             'subject_id',
         ]
 
-
 class StudentGuardianForm(forms.ModelForm):
     student_id = forms.ModelChoiceField(queryset=Student.objects.all(), initial=0, label='To which student would you like to assign a guardian?')
     guardian_id = forms.ModelChoiceField(queryset=Guardian.objects.all(), initial=0, label='Which guardian?')
@@ -73,7 +67,6 @@ class StudentGuardianForm(forms.ModelForm):
             'student_id',
             'guardian_id',
         ]
-
 
 class GradesForm(forms.ModelForm):
     subject_id = forms.ModelChoiceField(queryset=Subject.objects.all(), initial=0, label='Subject to assign')
@@ -86,7 +79,6 @@ class GradesForm(forms.ModelForm):
             'test2',
             'project',
         ]
-
 
 class ContactModelForm(forms.ModelForm):
     class Meta:
